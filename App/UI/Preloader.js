@@ -31,7 +31,8 @@ export default class Preloader {
 
     ready() {
 
-        this.loading.remove()
+        this.loading.remove();
+        this.loadingNote.remove();
 
         this.startButton.style.display = 'inline'
         this.startButton.classList.add('fadeIn')
