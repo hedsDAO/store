@@ -20,7 +20,6 @@ export default class World{
               if (state.loadedAssets.hed && !this.hedLoaded && this.sign.scene) {
                 this.sign.scene.children[0].position.set(0,5.5,0);
                 this.sign.scene.children[0].scale.set(3,3,3)
-                console.log("sign",this.sign?.scene?.children[0].position)
                 this.scene.add(this.hed.scene);
                 this.scene.add(this.sign.scene);
                 this.scene.background = state.loadedAssets.background
@@ -86,14 +85,12 @@ export default class World{
       this.globe.position.set(this.params.globeX, this.params.globeY, this.params.globeZ);
       this.globeInitialPositionZ = this.globe.position.z;
       this.globeInitialPositionX = this.globe.position.x;
-      console.log("globe",this.globe)
       // Add globe to scene
       this.scene.add(this.globe);
       this.scene.add(this.globe2);
   }
 
     enableWireframe(object) {
-      console.log("object", object)
       object.scene.traverse((node) => {
           if (node.isMesh) {
               if (Array.isArray(node.material)) {

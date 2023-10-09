@@ -32,7 +32,6 @@ export default class AssetLoader {
                 })
             }
             if (asset.type === 'model') {
-                console.log("asset", asset)
                 this.gltfLoader.load(asset.path, (loadedAsset)=>{
                     this.addLoadedAsset(loadedAsset, asset.id)
                 })
