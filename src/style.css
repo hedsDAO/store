@@ -34,6 +34,19 @@ body {
     transition: opacity 1s;
 }
 
+.loading-note{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: transparent;
+    font-size: 1.5rem;
+    font-family: 'Amatic SC';
+    opacity: 1;
+    transition: opacity 1s;
+}
+
 .loading.fade {
     opacity: 0;
 }

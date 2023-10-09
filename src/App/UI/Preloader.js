@@ -5,9 +5,10 @@ export default class Preloader {
         this.assetStore = assetStore
 
         // access to DOM elements
-        this.overlay = document.querySelector('.overlay')
-        this.loading = document.querySelector('.loading')
-        this.startButton = document.querySelector('.start')
+        this.overlay = document.querySelector('.overlay');
+        this.loading = document.querySelector('.loading');
+        this.loadingNote = document.querySelector('.loading-note');
+        this.startButton = document.querySelector('.start');
 
         this.assetStore.subscribe((state) =>{
 
@@ -20,6 +21,7 @@ export default class Preloader {
             if (this.progress === 100)
             {
                 this.loading.classList.add('fade')
+                this.loadingNote.classList.add('fade')
                 window.setTimeout(() => this.ready(), 1200)
                 
             }
