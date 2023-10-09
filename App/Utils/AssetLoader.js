@@ -20,16 +20,16 @@ export default class AssetLoader {
         dracoLoader.setDecoderPath('/draco/')
         this.gltfLoader = new GLTFLoader()
         this.gltfLoader.setDRACOLoader(dracoLoader)
-        this.textureLoader = new THREE.TextureLoader()
+        // this.textureLoader = new THREE.TextureLoader()
     }
 
     startLoading() {
         this.assetsToLoad.forEach((asset) => {
-            if (asset.type === 'texture') {
-                this.textureLoader.load(asset.path, (loadedAsset)=>{
-                    this.addLoadedAsset(loadedAsset, asset.id)
-                })
-            }
+            // if (asset.type === 'texture') {
+            //     this.textureLoader.load(asset.path, (loadedAsset)=>{
+            //         this.addLoadedAsset(loadedAsset, asset.id)
+            //     })
+            // }
             if (asset.type === 'model') {
                 this.gltfLoader.load(asset.path, (loadedAsset)=>{
                     this.addLoadedAsset(loadedAsset, asset.id)
