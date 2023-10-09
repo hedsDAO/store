@@ -28,8 +28,8 @@ body {
     transform: translate(-50%, -50%);
     color: white;
     background-color: transparent;
-    font-size: 2rem;
-    font-family: 'Amatic SC';
+    font-size: 1.5rem;
+    font-family: 'space grotesk';
     opacity: 1;
     transition: opacity 1s;
 }
@@ -59,8 +59,8 @@ body {
     border: none;
     color: white;
     background-color: transparent;
-    font-size: 4rem;
-    font-family: 'Amatic SC';
+    font-size: 3rem;
+    font-family: 'space grotesk';
     opacity: 0;
     transition: opacity 0.5s;
     display: none;

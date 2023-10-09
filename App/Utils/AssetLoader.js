@@ -20,18 +20,33 @@ export default class AssetLoader {
         dracoLoader.setDecoderPath('/draco/')
         this.gltfLoader = new GLTFLoader()
         this.gltfLoader.setDRACOLoader(dracoLoader)
-        // this.textureLoader = new THREE.TextureLoader()
+        this.textureLoader = new THREE.TextureLoader();
+        this.cubeMapLoader = new THREE.CubeTextureLoader();
     }
 
     startLoading() {
         this.assetsToLoad.forEach((asset) => {
-            // if (asset.type === 'texture') {
-            //     this.textureLoader.load(asset.path, (loadedAsset)=>{
-            //         this.addLoadedAsset(loadedAsset, asset.id)
-            //     })
-            // }
+            if (asset.type === 'texture') {
+                this.textureLoader.load(asset.path, (loadedAsset)=>{
+                    this.addLoadedAsset(loadedAsset, asset.id)
+                })
+            }
             if (asset.type === 'model') {
+                console.log("asset", asset)
                 this.gltfLoader.load(asset.path, (loadedAsset)=>{
+                    this.addLoadedAsset(loadedAsset, asset.id)
+                })
+            }
+            if (asset.type === 'cubeMap') {
+                this.cubeMapLoader.setPath(asset.path);
+                this.cubeMapLoader.load([
+                    `cubeMap/nx.png`,
+                    `cubeMap/ny.png`,
+                    `cubeMap/nz.png`,
+                    `cubeMap/px.png`,
+                    `cubeMap/py.png`,
+                    `cubeMap/pz.png`,
+                ], (loadedAsset)=>{
                     this.addLoadedAsset(loadedAsset, asset.id)
                 })
             }

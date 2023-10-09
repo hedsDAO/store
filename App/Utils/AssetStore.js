@@ -11,19 +11,19 @@ const assetsToLoad = [
   //   id: "mars",
   //   type: "texture",
   // },
-  // {
-  //   path: "/textures/2k_mercury.jpg",
-  //   id: "mercury",
-  //   type: "texture",
-  // },
-  // {
-  //   path: "/textures/2k_sun.jpg",
-  //   id: "sun",
-  //   type: "texture",
-  // },
   {
-    path: "https://www.heds.cloud/ipfs/QmcpvKGp5Pq9UKSyGYSaFDnVQ7C2wsvmKQ4arUkbLdk3LM",
-    id: "storefront",
+    path: "./hedstext.gltf",
+    id: "sign",
+    type: "model",
+  },
+  {
+    // path: "cubeMap/",
+    id: "background",
+    type: "cubeMap",
+  },
+  {
+    path: "./genhead.gltf",
+    id: "hed",
     type: "model",
   }
 ];

@@ -7,21 +7,19 @@ export default class Preloader {
         // access to DOM elements
         this.overlay = document.querySelector('.overlay');
         this.loading = document.querySelector('.loading');
-        this.loadingNote = document.querySelector('.loading-note');
         this.startButton = document.querySelector('.start');
 
         this.assetStore.subscribe((state) =>{
-
+            // console.log("state", state)
             this.numberOfLoadedAssets = Object.keys(state.loadedAssets).length
             this.numberOfAssetsToLoad = state.assetsToLoad.length
             this.progress = this.numberOfLoadedAssets / this.numberOfAssetsToLoad
             this.progress = Math.trunc(this.progress * 100)
-            // document.getElementById('progressPercentage').innerHTML= this.progress
+            document.getElementById('progressPercentage').innerHTML= this.progress
 
             if (this.progress === 100)
             {
                 this.loading.classList.add('fade')
-                this.loadingNote.classList.add('fade')
                 window.setTimeout(() => this.ready(), 1200)
                 
             }
@@ -32,7 +30,6 @@ export default class Preloader {
     ready() {
 
         this.loading.remove();
-        this.loadingNote.remove();
 
         this.startButton.style.display = 'inline'
         this.startButton.classList.add('fadeIn')
