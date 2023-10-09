@@ -18,8 +18,11 @@ export default class World{
               this.sign = state.loadedAssets.sign;
               
               if (state.loadedAssets.hed && !this.hedLoaded && this.sign.scene) {
-                this.sign.scene.children[0].position.set(0,5.5,0);
-                this.sign.scene.children[0].scale.set(3,3,3)
+                this.sign.scene.children[0].position.set(0,2,0);
+                this.sign.scene.children[0].scale.set(3,3,3);
+                this.sign.scene.children[0].material.side = THREE.DoubleSide;
+                this.hed.scene.position.set(0,-5,0);
+                this.hed.scene.scale.set(1.25,1.25,1.25)
                 this.scene.add(this.hed.scene);
                 this.scene.add(this.sign.scene);
                 this.scene.background = state.loadedAssets.background
@@ -45,7 +48,7 @@ export default class World{
       // Create an object to hold the parameters
       this.params = {
           globeX: 0,
-          globeY: 0,
+          globeY: 8,
           globeZ: 0
       };
 
@@ -73,7 +76,7 @@ export default class World{
     initGlobe() {
       // Create globe geometry and material
       const globeGeometry = new THREE.SphereGeometry(1, 32, 32); // Adjust size as needed
-       globeGeometry.scale = new Vector3(4,4,4);
+       globeGeometry.scale = new Vector3(1.5,1.5,1.5);
 
       const globeMaterial = new THREE.MeshStandardMaterial({color: "green", roughness: 0.8, metalness: 0.2});
       const globalMaterial2 = new THREE.MeshStandardMaterial({color: "blue", roughness: 0.8, metalness: 0.2});
@@ -81,7 +84,7 @@ export default class World{
       // Create globe mesh
       this.globe = new THREE.Mesh(globeGeometry, globeMaterial);
       this.globe2 = new THREE.Mesh(globeGeometry, globalMaterial2);
-      this.globe2.position.set(this.params.globeX + 10, this.params.globeY - 10, this.params.globeZ + 5);
+      this.globe2.position.set(this.params.globeX + 10, this.params.globeY - 1, this.params.globeZ + 5);
       this.globe.position.set(this.params.globeX, this.params.globeY, this.params.globeZ);
       this.globeInitialPositionZ = this.globe.position.z;
       this.globeInitialPositionX = this.globe.position.x;
@@ -128,7 +131,7 @@ export default class World{
         this.globe2.position.x = this.globeInitialPositionX + Math.cos((this.oscillationSpeed- .0002) * Date.now()) * this.oscillationDistance;
         this.hed.scene.traverse((node) => {
             if (node.isMesh && node.material.color.equals(new THREE.Color(0xb3ffff))) {
-                node.rotation.z += 0.01; // Adjust the value for different rotation speed
+                node.rotation.z += 0.001; // Adjust the value for different rotation speed
             }
         });
     }

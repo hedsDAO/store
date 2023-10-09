@@ -26,7 +26,7 @@ export default class Camera{
             0.1,
             200
           );
-        this.instance.position.set(3, 5, 40);
+        this.instance.position.set(3, -4, 6);
     }
 
     setControls() {
