@@ -15,7 +15,7 @@ export default class Preloader {
             this.numberOfAssetsToLoad = state.assetsToLoad.length
             this.progress = this.numberOfLoadedAssets / this.numberOfAssetsToLoad
             this.progress = Math.trunc(this.progress * 100)
-            document.getElementById('progressPercentage').innerHTML= this.progress
+            // document.getElementById('progressPercentage').innerHTML= this.progress
 
             if (this.progress === 100)
             {
