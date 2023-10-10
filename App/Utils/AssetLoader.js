@@ -27,7 +27,7 @@ export default class AssetLoader {
     this.assetsToLoad.forEach((asset) => {
       if (asset.type === "texture") {
         asset.textureNames.forEach(name => {
-            this.textureLoader.load(`${asset.path}/${asset.path}_${name}.png`, (loadedAsset) => {
+            this.textureLoader.load(`${asset.path}_${name}.png`, (loadedAsset) => {
               this.addLoadedAsset(loadedAsset, `${asset.id}-${name}`)
           });
         });
