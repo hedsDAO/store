@@ -1,23 +1,30 @@
 import { createStore } from "zustand/vanilla";
 
 const assetsToLoad = [
-  // {
-  //   path: "/textures/2k_earth_daymap.jpg",
-  //   id: "earth",
-  //   type: "texture",
-  // },
-  // {
-  //   path: "/textures/2k_mars.jpg",
-  //   id: "mars",
-  //   type: "texture",
-  // },
+  {
+    path: "/space-cruiser-panels2",
+    id: "cruiser",
+    type: "texture",
+    textureNames: ['albedo', 'ao', 'height', 'metallic', 'normal-ogl', 'roughness']
+  },
+  {
+    path: "/space-ship-monitor",
+    id: "monitor",
+    type: "texture",
+    textureNames: ['albedo', 'ao', 'height', 'metallic', 'normal-ogl', 'roughness']
+  },
+  {
+    path: "/spaceship-panels",
+    id: "panels",
+    type: "texture",
+    textureNames: ['albedo', 'ao', 'height', 'metallic', 'roughness']
+  },
   {
     path: "./hedstext.gltf",
     id: "sign",
     type: "model",
   },
   {
-    // path: "cubeMap/",
     id: "background",
     type: "cubeMap",
   },
