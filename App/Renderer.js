@@ -5,6 +5,7 @@ import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
 import { Pane } from "tweakpane";
+import { CSS3DRenderer, CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 
 export default class Renderer {
   constructor() {
@@ -20,6 +21,7 @@ export default class Renderer {
     this.setResizeLister();
     this.initTweakpane();
     this.setupPostProcessing();
+    // this.setupCSS3DRenderer();
   }
 
   setInstance() {
@@ -81,6 +83,25 @@ export default class Renderer {
     // this.scene.add(pane)
   }
 
+  // setupCSS3DRenderer() {
+  //   // Create CSS3DRenderer
+  //   this.cssRenderer = new CSS3DRenderer();
+  //   this.cssRenderer.setSize(window.innerWidth, window.innerHeight);
+  //   // console.log(this.cssRenderer.domElement)
+  //   document.getElementById('three').appendChild(this.cssRenderer.domElement);
+
+  //   // Create iframe element
+  //   const iframeElement = document.createElement('iframe');
+  //   iframeElement.src = 'https://www.heds.app/';
+  //   iframeElement.style.width = '640px';
+  //   iframeElement.style.height = '360px';
+
+  //   // Create CSS3DObject and set position
+  //   this.cssObject = new CSS3DObject(iframeElement);
+  //   this.cssObject.position.set(0, 0, 0); // Set the position where you want the iframe to appear
+  //   this.scene.add(this.cssObject);
+  // }
+
   loop() {
     this.time += 0.02; // Adjust the increment value to speed up or slow down the oscillation
 
@@ -91,6 +112,7 @@ export default class Renderer {
     // this.bloomPass.strength = this.bloomParams.strength;
     this.bloomPass.radius = this.bloomParams.radius;
     this.composer.render();
+    // this.cssRenderer.render(this.scene, this.camera.instance);
     // this.instance.render(this.scene, this.camera.instance)
   }
 }
